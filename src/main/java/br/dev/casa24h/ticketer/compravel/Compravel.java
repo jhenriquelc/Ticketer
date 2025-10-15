@@ -1,4 +1,4 @@
-package br.dev.casa24h.ticketer.model;
+package br.dev.casa24h.ticketer.compravel;
 
 public interface Compravel {
 

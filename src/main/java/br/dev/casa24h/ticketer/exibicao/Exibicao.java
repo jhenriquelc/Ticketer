@@ -1,6 +1,10 @@
-package br.dev.casa24h.ticketer.model;
+package br.dev.casa24h.ticketer.exibicao;
 
 import java.util.HashMap;
+
+import br.dev.casa24h.ticketer.filme.Filme;
+import br.dev.casa24h.ticketer.sala.Sala;
+
 import java.time.LocalDateTime;
 
 public record Exibicao(Sala sala, Filme filme, HashMap<String, Boolean> assentosOcupados, LocalDateTime inicio) {

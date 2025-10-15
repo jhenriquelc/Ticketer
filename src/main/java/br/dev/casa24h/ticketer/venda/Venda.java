@@ -1,4 +1,8 @@
-package br.dev.casa24h.ticketer.model;
+package br.dev.casa24h.ticketer.venda;
+
+import java.util.ArrayList;
+
+import br.dev.casa24h.ticketer.compravel.Compravel;
 
 import java.util.ArrayList;
 

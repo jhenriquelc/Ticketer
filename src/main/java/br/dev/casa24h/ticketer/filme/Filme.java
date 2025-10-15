@@ -1,4 +1,4 @@
-package br.dev.casa24h.ticketer.model;
+package br.dev.casa24h.ticketer.filme;
 
 import java.time.Duration;
 

@@ -1,4 +1,6 @@
-package br.dev.casa24h.ticketer.model;
+package br.dev.casa24h.ticketer.compravel;
+
+import br.dev.casa24h.ticketer.exibicao.Exibicao;
 
 public record Ingresso(Long id, Exibicao exibicao, String poltrona) implements Compravel {
 
