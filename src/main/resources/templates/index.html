@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Ticketer</title>
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <script th:src="@{/js/sidebar.js}" defer></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="menu">
+            <div class="menu-item">
+                <p>Vendas</p>
+                <div class="submenu">
+                    <a th:href="@{/ingressos}">Ingressos</a>
+                    <a th:href="@{/bomboniere}">Bomboniere</a>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <p>Gerenciamento</p>
+                <div class="submenu">
+                    <a th:href="@{/filmes}">Filmes</a>
+                    <a th:href="@{/sessoes}">Sessões</a>
+                    <a th:href="@{/gerenciamento-bomboniere}">Bomboniere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="conteudo" th:include="${conteudo}"></div>
+
+</body>
+</html>
