@@ -7,7 +7,7 @@ public class ItemBomboniere extends Compravel {
     private float preco;
 
     public String getDescricao() {
-        // TODO
+        return this.nome;
     }
 
     public float getPreco() {
