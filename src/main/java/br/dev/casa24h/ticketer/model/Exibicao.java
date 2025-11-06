@@ -11,11 +11,11 @@ public class Exibicao {
 	private LocalDateTime inicio;
         
 	public boolean verificarAssento(String assento) {
-            return assentosOcupados.getOrDefault(assento, Boolean.FALSE);
+        return assentosOcupados.getOrDefault(assento, Boolean.FALSE);
 	}
 
 	public void ocuparAssento(String assento) {
-                
+        this.assentosOcupados.put(assento, Boolean.TRUE)
 	}
 
     public Sala getSala() {
@@ -48,6 +48,10 @@ public class Exibicao {
 
     public void setInicio(LocalDateTime inicio) {
         this.inicio = inicio;
+    }
+
+    public LocalDateTime getFim() {
+        return this.inicio.plus(filme.duracao);
     }
 
 }

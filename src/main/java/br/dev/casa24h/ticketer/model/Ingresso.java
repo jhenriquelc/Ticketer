@@ -7,7 +7,10 @@ public class Ingresso extends Compravel {
     private String poltrona;
 
     public String getDescricao() {
-        // TODO
+        return this.exibicao.getSala().toString() + " - " + this.poltrona.toString() + "\n"+
+        this.exibicao.getInicio() + " - " + this.exibicao.getFim() + "\n" +
+        this.exibicao.getFilme().getNome();
+
     }
 
     public float getPreco() {
