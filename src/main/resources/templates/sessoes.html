@@ -1,5 +1,24 @@
 <div th:fragment="conteudo">
-    <h1>Gerenciamento de sessões </h1>
-    <p>Aqui você pode cadastrar, editar e remover sessões.</p>
-</div>
+    <h2>Cadastrar Sessoes:</h2>
+    <!-- <form th:action="@{/filmes/salvar}" action="/filmes/salvar" method="post"> -->
+    <form>
 
+        <div class="form-group">
+            <label >Escolha o filme:</label>
+            <input list="filmes-list" name="filme-nome" />
+            <datalist id="filmes-list" maxlength="50" placeholder="Nome do filme" required>
+                <!-- <option th:each="filme : ${filmes}" th:value="${filme.id}" th:text="${filme.nome}"></option> -->
+                 <option value="Avatar 2: O Caminho da Água">Avatar: O caminho da Água</option>
+                 <option value="Avatar 2: O Caminho da Água">Avatar: O caminho da Água</option>
+                 <option value="Avatar 2: O Caminho da Água">Avatar: O caminho da Água</option>
+            </datalist>
+        </div>
+
+        <div class="form-group">
+            <label>Inicio da Sessão:</label>
+            <input type="time" name="duracao" required>
+        </div>
+
+        <button type="submit" class="btn">Salvar Filme</button>
+    </form>
+</div>

@@ -1,5 +1,34 @@
+
 <div th:fragment="conteudo">
-    <h1>Venda de Ingressos </h1>
-    <p>Vender ingressos.</p>
+    <div class="vendas-container">
+
+        <div class="filmes-grid">
+            <div class="filme-card">
+                <h2 class="filme-nome">Avatar 2: O Caminho da Água</h2>
+                <div class="filme-informacoes">
+                    <p class="filme-genero">Ficção</p>
+                    <p class="filme-duracao">120m</p>
+                    <p class="exibir-horas">↓</p>
+                </div>
+                <div>
+                    <div>
+                        <label for="sessao-horarios">Selecione o horário:</label>
+                        <select id="sessao-horarios" name="sessao-horarios">
+                            <option value="14:00">14:00</option>
+                            <option value="16:30">16:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="21:30">21:30</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="quantidade-ingressos">Quantidade de ingressos:</label>
+                        <input type="number" id="quantidade-ingressos" name="quantidade-ingressos" min="1" max="30" value="1" style="width: 60px; margin-left: 10px;">
+                    </div>
+                    <button class="btn-comprar">Comprar Ingresso</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 

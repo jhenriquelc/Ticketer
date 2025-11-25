@@ -1,3 +1,4 @@
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -46,3 +47,8 @@
   margin-left: 240px;
   padding: 20px;
 }
+
+.page{
+  display: flex;
+}
+

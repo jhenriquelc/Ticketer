@@ -1,7 +1,23 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<body th:fragment="conteudo">
-    <h1>Gerenciamento de Filmes 🍿</h1>
-    <p>Aqui você pode cadastrar, editar e remover Filmes.</p>
-</body>
-</html>
+<div th:fragment="conteudo">
+    <h2>Cadastrar filmes:</h2>
+    <!-- <form th:action="@{/filmes/salvar}" action="/filmes/salvar" method="post"> -->
+    <form>
+
+        <div class="form-group">
+            <label>Nome do Filme:</label>
+            <input type="text" name="nome" maxlength="50" placeholder="Nome do filme" required>
+        </div>
+
+        <div class="form-group">
+            <label>Duração (em minutos):</label>
+            <input type="number" name="duracao" required>
+        </div>
+
+        <div class="form-group">
+            <label>Preço do Ingresso (R$):</label>
+            <input type="number" name="precoIngresso" placeholder="Ex: 29.90" required>
+        </div>
+
+        <button type="submit" class="btn">Salvar Filme</button>
+    </form>
+</div>

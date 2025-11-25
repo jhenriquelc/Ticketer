@@ -1,7 +1,16 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <body th:fragment="conteudo">
-        <h1>Venda de Bomboniere 🍿</h1>
-        <p>Compra na bomboniere.</p>
-    </body>
-</html>
+<div th:fragment="conteudo">
+    <div class="vendas-container">
+
+        <div class="filmes-grid">
+            <div class="filme-card">
+                <h2 class="filme-nome">Pipoca</h2>
+                <div class="filme-informacoes">
+                    <p class="filme-genero">qtd:</p>
+                    <input type="number" name="quantidade" min="1" value="1" style="width: 60px; margin-right: 10px;">
+                    <button class="btn-comprar">Adicionar ao carrinho</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
