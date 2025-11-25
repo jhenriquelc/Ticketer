@@ -3,51 +3,35 @@ package br.dev.casa24h.ticketer.model;
 import java.util.HashMap;
 import java.time.LocalDateTime;
 
-public class Exibicao {
-
-	private Sala sala;
-	private Filme filme;
-	private HashMap<String, Boolean> assentosOcupados;
-	private LocalDateTime inicio;
+public record Exibicao(Sala sala, Filme filme, HashMap<String, Boolean> assentosOcupados, LocalDateTime inicio) {
         
 	public boolean verificarAssento(String assento) {
-            return assentosOcupados.getOrDefault(assento, Boolean.FALSE);
+        return assentosOcupados.getOrDefault(assento, Boolean.FALSE);
 	}
 
 	public void ocuparAssento(String assento) {
-                
+        this.assentosOcupados.put(assento, Boolean.TRUE);
 	}
 
-    public Sala getSala() {
-        return sala;
+
+    public Exibicao setSala(Sala sala) {
+        return new Exibicao(sala, this.filme(), this.assentosOcupados(), this.inicio());
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public Exibicao setFilme(Filme filme) {
+        return new Exibicao(this.sala(), filme, this.assentosOcupados(), this.inicio());
     }
 
-    public Filme getFilme() {
-        return filme;
+    public Exibicao setAssentosOcupados(HashMap<String, Boolean> assentosOcupados) {
+        return new Exibicao(this.sala(), this.filme(), assentosOcupados, this.inicio());
     }
 
-    public void setFilme(Filme filme) {
-        this.filme = filme;
+    public Exibicao setInicio(LocalDateTime inicio) {
+        return new Exibicao(this.sala(), this.filme(), this.assentosOcupados(), inicio);
     }
 
-    public HashMap<String, Boolean> getAssentosOcupados() {
-        return assentosOcupados;
-    }
-
-    public void setAssentosOcupados(HashMap<String, Boolean> assentosOcupados) {
-        this.assentosOcupados = assentosOcupados;
-    }
-
-    public LocalDateTime getInicio() {
-        return inicio;
-    }
-
-    public void setInicio(LocalDateTime inicio) {
-        this.inicio = inicio;
+    public LocalDateTime getFim() {
+        return this.inicio.plus(filme.duracao());
     }
 
 }

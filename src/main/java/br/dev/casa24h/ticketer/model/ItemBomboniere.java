@@ -1,13 +1,9 @@
 package br.dev.casa24h.ticketer.model;
 
-public class ItemBomboniere extends Compravel {
-
-    private String nome;
-
-    private float preco;
+public record ItemBomboniere(Long id, String nome, float preco) implements Compravel {
 
     public String getDescricao() {
-        // TODO
+        return this.nome;
     }
 
     public float getPreco() {
@@ -18,10 +14,8 @@ public class ItemBomboniere extends Compravel {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public ItemBomboniere setNome(String nome) {
+        return new ItemBomboniere(id, nome, this.preco);
     }
-        
-        
 
 }
