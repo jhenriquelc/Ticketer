@@ -2,16 +2,14 @@ package br.dev.casa24h.ticketer.model;
 
 import java.util.ArrayList;
 
-public class Sala {
-
-    private ArrayList<String> assentos;
+public record Sala(Long id, ArrayList<String> assentos) {
 
     public ArrayList<String> getAssentos() {
         return assentos;
     }
 
-    public void setAssentos(ArrayList<String> assentos) {
-        this.assentos = assentos;
+    public Sala setAssentos(ArrayList<String> assentos) {
+        return new Sala(this.id, assentos);
     }
     
 }
