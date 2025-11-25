@@ -2,18 +2,36 @@ package br.dev.casa24h.ticketer.filme;
 
 import java.time.Duration;
 
-public record Filme(String nome, Duration duracao, float precoIngresso) {
+public class Filme {
 
-    public Filme setNome(String nome) {
-        return new Filme(nome, this.duracao(), this.precoIngresso());
+	private String nome;
+
+	private Duration duracao;
+
+	private float precoIngresso;
+
+    public String getNome() {
+        return nome;
     }
 
-    public Filme setDuracao(Duration duracao) {
-        return new Filme(this.nome(), duracao, this.precoIngresso());
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Filme setPrecoIngresso(float precoIngresso) {
-        return new Filme(this.nome(), this.duracao(), precoIngresso);
+    public Duration getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(Duration duracao) {
+        this.duracao = duracao;
+    }
+
+    public float getPrecoIngresso() {
+        return precoIngresso;
+    }
+
+    public void setPrecoIngresso(float precoIngresso) {
+        this.precoIngresso = precoIngresso;
     }
     
 }

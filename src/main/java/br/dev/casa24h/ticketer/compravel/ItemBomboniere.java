@@ -1,6 +1,10 @@
 package br.dev.casa24h.ticketer.compravel;
 
-public record ItemBomboniere(Long id, String nome, float preco) implements Compravel {
+public class ItemBomboniere extends Compravel {
+
+    private String nome;
+
+    private float preco;
 
     public String getDescricao() {
         return this.nome;
@@ -14,8 +18,10 @@ public record ItemBomboniere(Long id, String nome, float preco) implements Compr
         return nome;
     }
 
-    public ItemBomboniere setNome(String nome) {
-        return new ItemBomboniere(id, nome, this.preco);
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+        
+        
 
 }

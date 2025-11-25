@@ -2,25 +2,37 @@ package br.dev.casa24h.ticketer.compravel;
 
 import br.dev.casa24h.ticketer.exibicao.Exibicao;
 
-public record Ingresso(Long id, Exibicao exibicao, String poltrona) implements Compravel {
+public class Ingresso extends Compravel {
+
+    private Exibicao exibicao;
+
+    private String poltrona;
 
     public String getDescricao() {
-        return this.exibicao.sala().toString() + " - " + this.poltrona.toString() + "\n"+
-        this.exibicao.inicio() + " - " + this.exibicao.getFim() + "\n" +
-        this.exibicao.filme().nome();
+        return this.exibicao.getSala().toString() + " - " + this.poltrona.toString() + "\n"+
+        this.exibicao.getInicio() + " - " + this.exibicao.getFim() + "\n" +
+        this.exibicao.getFilme().getNome();
 
     }
 
     public float getPreco() {
-        return this.exibicao.filme().precoIngresso();
+        this.exibicao.getFilme().getPreco();
     }
 
-    public Ingresso setExibicao(Exibicao exibicao) {
-        return new Ingresso(this.id, exibicao, this.poltrona);
+    public Exibicao getExibicao() {
+        return exibicao;
     }
 
-    public Ingresso setPoltrona(String poltrona) {
-        return new Ingresso(this.id, this.exibicao, poltrona);
+    public void setExibicao(Exibicao exibicao) {
+        this.exibicao = exibicao;
+    }
+
+    public String getPoltrona() {
+        return poltrona;
+    }
+
+    public void setPoltrona(String poltrona) {
+        this.poltrona = poltrona;
     }
 
 }
