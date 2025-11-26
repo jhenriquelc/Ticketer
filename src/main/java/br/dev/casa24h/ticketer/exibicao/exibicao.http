@@ -1,0 +1,30 @@
+GET http://localhost:8080/api/repo/exibicoes
+
+POST http://localhost:8080/api/repo/filmes
+json({
+  "nome": "A Night Before Christmas",
+  "duracao": "PT1H30M",
+  "precoIngresso": 15.0
+})
+
+POST http://localhost:8080/api/repo/salas
+json({
+  "nome": "Sala Teste",
+  "assentos": ["A1", "A2", "A3", "B1", "B2", "B3"]
+})
+
+GET http://localhost:8080/api/repo/salas/1
+
+POST http://localhost:8080/api/repo/exibicoes
+json({
+  "filme": "http://localhost:8080/api/repo/filmes/1",
+  "sala": "http://localhost:8080/api/repo/salas/1",
+  "inicio": "2025-12-25T20:00:00",
+})
+
+GET http://localhost:8080/api/repo/exibicoes/1/filme
+
+POST http://localhost:8080/api/exibicoes/1/ocupar/A2
+
+GET http://localhost:8080/api/repo/exibicoes/1
+    
