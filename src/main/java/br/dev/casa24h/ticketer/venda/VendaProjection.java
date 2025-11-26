@@ -1,5 +1,6 @@
 package br.dev.casa24h.ticketer.venda;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.rest.core.config.Projection;
@@ -9,7 +10,7 @@ public interface VendaProjection {
 
     Long getId();
 
-    java.time.Instant getCreatedAt();
+    LocalDateTime getData();
 
     List<VendaItemProjection> getItens();
 
