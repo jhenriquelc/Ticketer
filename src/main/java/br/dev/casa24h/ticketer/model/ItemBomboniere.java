@@ -1,4 +1,4 @@
-package br.dev.casa24h.ticketer.compravel;
+package br.dev.casa24h.ticketer.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

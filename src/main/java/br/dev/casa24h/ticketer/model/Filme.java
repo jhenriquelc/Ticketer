@@ -1,7 +1,8 @@
-package br.dev.casa24h.ticketer.filme;
+package br.dev.casa24h.ticketer.model;
 
 import java.time.Duration;
 
+import br.dev.casa24h.ticketer.filme.DurationAttributeConverter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;

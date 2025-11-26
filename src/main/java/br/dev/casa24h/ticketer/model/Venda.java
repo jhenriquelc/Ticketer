@@ -1,10 +1,8 @@
-package br.dev.casa24h.ticketer.venda;
+package br.dev.casa24h.ticketer.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import br.dev.casa24h.ticketer.compravel.Compravel;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

@@ -11,16 +11,16 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import br.dev.casa24h.ticketer.compravel.IngressoRepository;
-import br.dev.casa24h.ticketer.compravel.ItemBomboniereRepository;
-import br.dev.casa24h.ticketer.exibicao.Exibicao;
-import br.dev.casa24h.ticketer.exibicao.ExibicaoRepository;
-import br.dev.casa24h.ticketer.filme.Filme;
-import br.dev.casa24h.ticketer.filme.FilmeRepository;
-import br.dev.casa24h.ticketer.sala.Sala;
-import br.dev.casa24h.ticketer.sala.SalaRepository;
-import br.dev.casa24h.ticketer.venda.Venda;
-import br.dev.casa24h.ticketer.venda.VendaRepository;
+import br.dev.casa24h.ticketer.model.Exibicao;
+import br.dev.casa24h.ticketer.model.Filme;
+import br.dev.casa24h.ticketer.model.Sala;
+import br.dev.casa24h.ticketer.model.Venda;
+import br.dev.casa24h.ticketer.repository.ExibicaoRepository;
+import br.dev.casa24h.ticketer.repository.FilmeRepository;
+import br.dev.casa24h.ticketer.repository.IngressoRepository;
+import br.dev.casa24h.ticketer.repository.ItemBomboniereRepository;
+import br.dev.casa24h.ticketer.repository.SalaRepository;
+import br.dev.casa24h.ticketer.repository.VendaRepository;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -58,6 +58,7 @@ abstract class RepositoryRestResourceITSupport {
         filmeRepository.deleteAll();
         salaRepository.deleteAll();
     }
+
     protected Exibicao persistExibicao(String filmeNome) {
         Filme filme = filmeRepository.save(new Filme(filmeNome, Duration.ofMinutes(120), 35f));
         Sala sala = new Sala(new ArrayList<>(List.of("A1", "A2", "A3")));

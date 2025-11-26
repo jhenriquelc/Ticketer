@@ -8,8 +8,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.hateoas.MediaTypes;
 
-import br.dev.casa24h.ticketer.compravel.ItemBomboniere;
-import br.dev.casa24h.ticketer.venda.Venda;
+import br.dev.casa24h.ticketer.model.ItemBomboniere;
+import br.dev.casa24h.ticketer.model.Venda;
+import br.dev.casa24h.ticketer.repository.VendaRepository;
 
 class VendaRepositoryRestResourceIT extends RepositoryRestResourceITSupport {
 

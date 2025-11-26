@@ -1,16 +1,18 @@
 package br.dev.casa24h.ticketer.datarest;
 
+import br.dev.casa24h.ticketer.model.Filme;
+import br.dev.casa24h.ticketer.repository.FilmeRepository;
+
+import java.time.Duration;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.time.Duration;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.hateoas.MediaTypes;
 
-import br.dev.casa24h.ticketer.filme.Filme;
 
 class FilmeRepositoryRestResourceIT extends RepositoryRestResourceITSupport {
 

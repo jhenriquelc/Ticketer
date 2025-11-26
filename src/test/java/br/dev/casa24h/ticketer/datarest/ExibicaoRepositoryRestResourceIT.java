@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.hateoas.MediaTypes;
 
-import br.dev.casa24h.ticketer.exibicao.Exibicao;
+import br.dev.casa24h.ticketer.model.Exibicao;
 
 class ExibicaoRepositoryRestResourceIT extends RepositoryRestResourceITSupport {
 

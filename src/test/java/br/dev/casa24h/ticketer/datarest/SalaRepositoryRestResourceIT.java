@@ -11,7 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.hateoas.MediaTypes;
 
-import br.dev.casa24h.ticketer.sala.Sala;
+import br.dev.casa24h.ticketer.model.Sala;
+import br.dev.casa24h.ticketer.repository.SalaRepository;
 
 class SalaRepositoryRestResourceIT extends RepositoryRestResourceITSupport {
 

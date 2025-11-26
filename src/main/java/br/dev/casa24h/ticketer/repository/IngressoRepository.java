@@ -1,4 +1,6 @@
-package br.dev.casa24h.ticketer.compravel;
+package br.dev.casa24h.ticketer.repository;
+
+import br.dev.casa24h.ticketer.model.Ingresso;
 
 import java.util.List;
 

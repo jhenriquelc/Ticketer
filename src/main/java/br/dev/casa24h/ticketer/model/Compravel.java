@@ -1,4 +1,4 @@
-package br.dev.casa24h.ticketer.compravel;
+package br.dev.casa24h.ticketer.model;
 
 public abstract class Compravel {
 

@@ -1,4 +1,4 @@
-package br.dev.casa24h.ticketer.sala;
+package br.dev.casa24h.ticketer.model;
 
 import java.util.ArrayList;
 import java.util.List;

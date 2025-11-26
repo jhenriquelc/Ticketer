@@ -23,7 +23,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import br.dev.casa24h.ticketer.sala.Sala;
+import br.dev.casa24h.ticketer.model.Sala;
+import br.dev.casa24h.ticketer.model.Exibicao;
+import br.dev.casa24h.ticketer.controller.ExibicaoController;
+import br.dev.casa24h.ticketer.repository.ExibicaoRepository;
 
 @WebMvcTest(ExibicaoController.class)
 class ExibicaoControllerTest {

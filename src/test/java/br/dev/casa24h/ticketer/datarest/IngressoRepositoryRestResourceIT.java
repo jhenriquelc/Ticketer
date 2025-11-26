@@ -8,8 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.hateoas.MediaTypes;
 
-import br.dev.casa24h.ticketer.compravel.Ingresso;
-import br.dev.casa24h.ticketer.exibicao.Exibicao;
+import br.dev.casa24h.ticketer.model.Exibicao;
+import br.dev.casa24h.ticketer.model.Ingresso;
 
 class IngressoRepositoryRestResourceIT extends RepositoryRestResourceITSupport {
 

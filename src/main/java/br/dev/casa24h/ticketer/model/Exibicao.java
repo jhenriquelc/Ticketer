@@ -1,11 +1,8 @@
-package br.dev.casa24h.ticketer.exibicao;
+package br.dev.casa24h.ticketer.model;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
-
-import br.dev.casa24h.ticketer.filme.Filme;
-import br.dev.casa24h.ticketer.sala.Sala;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;

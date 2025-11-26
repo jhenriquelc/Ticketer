@@ -1,4 +1,6 @@
-package br.dev.casa24h.ticketer.sala;
+package br.dev.casa24h.ticketer.repository;
+
+import br.dev.casa24h.ticketer.model.Sala;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.CrudRepository;

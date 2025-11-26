@@ -1,9 +1,10 @@
-package br.dev.casa24h.ticketer.compravel;
+package br.dev.casa24h.ticketer.repository;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import br.dev.casa24h.ticketer.model.ItemBomboniere;
 
 import java.util.List;
 
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

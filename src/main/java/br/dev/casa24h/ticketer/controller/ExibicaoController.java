@@ -1,4 +1,7 @@
-package br.dev.casa24h.ticketer.exibicao;
+package br.dev.casa24h.ticketer.controller;
+
+import br.dev.casa24h.ticketer.model.Exibicao;
+import br.dev.casa24h.ticketer.repository.ExibicaoRepository;
 
 import java.util.Optional;
 
