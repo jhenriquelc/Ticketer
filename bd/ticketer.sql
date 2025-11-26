@@ -18,7 +18,7 @@ USE `Ticketer` ;
 -- Table `Ticketer`.`Filme`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Ticketer`.`Filme` (
-  `idFilme` INT NOT NULL,
+  `idFilme` INT NOT NULL AUTO_INCREMENT,
   `duracao` TIME NOT NULL,
   `precoIngresso` FLOAT NOT NULL,
   `nome` VARCHAR(50) NOT NULL,
@@ -30,7 +30,7 @@ ENGINE = InnoDB;
 -- Table `Ticketer`.`Venda`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Ticketer`.`Venda` (
-  `idVenda` INT NOT NULL,
+  `idVenda` INT NOT NULL AUTO_INCREMENT,
   `data` TIMESTAMP NOT NULL,
   PRIMARY KEY (`idVenda`))
 ENGINE = InnoDB;
@@ -40,7 +40,7 @@ ENGINE = InnoDB;
 -- Table `Ticketer`.`ItemVenda`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Ticketer`.`ItemVenda` (
-  `idItemVenda` INT NOT NULL,
+  `idItemVenda` INT NOT NULL AUTO_INCREMENT,
   `preco` FLOAT NOT NULL,
   `descricao` VARCHAR(50) NOT NULL,
   `fk_idVenda` INT NOT NULL,
@@ -58,7 +58,7 @@ ENGINE = InnoDB;
 -- Table `Ticketer`.`Sala`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Ticketer`.`Sala` (
-  `idSala` INT NOT NULL,
+  `idSala` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idSala`))
 ENGINE = InnoDB;
 
@@ -67,7 +67,7 @@ ENGINE = InnoDB;
 -- Table `Ticketer`.`Exibicao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Ticketer`.`Exibicao` (
-  `idExibicao` INT NOT NULL,
+  `idExibicao` INT NOT NULL AUTO_INCREMENT,
   `fk_idSala` INT NOT NULL,
   `fk_idFilme` INT NOT NULL,
   `inicio` TIMESTAMP NOT NULL,
@@ -91,7 +91,7 @@ ENGINE = InnoDB;
 -- Table `Ticketer`.`Ingresso`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Ticketer`.`Ingresso` (
-  `idIngresso` INT NOT NULL,
+  `idIngresso` INT NOT NULL AUTO_INCREMENT,
   `fk_idExibicao` INT NOT NULL,
   `assento` VARCHAR(5) NOT NULL,
   PRIMARY KEY (`idIngresso`),
@@ -108,7 +108,7 @@ ENGINE = InnoDB;
 -- Table `Ticketer`.`ItemBomboniere`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Ticketer`.`ItemBomboniere` (
-  `idItemBomboniere` INT NOT NULL,
+  `idItemBomboniere` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(50) NOT NULL,
   `preco` FLOAT NOT NULL,
   PRIMARY KEY (`idItemBomboniere`))

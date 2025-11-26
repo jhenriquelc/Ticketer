@@ -1,5 +1,7 @@
 package br.dev.casa24h.ticketer.model;
 
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
