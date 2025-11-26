@@ -19,7 +19,7 @@ public class Exibicao {
 	}
 
 	public void ocuparAssento(String assento) {
-        this.assentosOcupados.put(assento, Boolean.TRUE)
+        this.assentosOcupados.put(assento, Boolean.TRUE);
 	}
 
     public Sala getSala() {
@@ -55,7 +55,7 @@ public class Exibicao {
     }
 
     public LocalDateTime getFim() {
-        return this.inicio.plus(filme.duracao);
+        return this.inicio.plus(filme.getDuracao());
     }
 
 }

@@ -16,7 +16,7 @@ public class Ingresso extends Compravel {
     }
 
     public float getPreco() {
-        this.exibicao.getFilme().getPreco();
+        return this.exibicao.getFilme().getPrecoIngresso();
     }
 
     public Exibicao getExibicao() {
