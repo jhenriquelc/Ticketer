@@ -1,0 +1,40 @@
+- kind: 2
+  language: dothttp-vscode
+  value: GET http://localhost:8080/api/repo/ingressos
+  outputs:
+    - mime: x-application/dotbook
+      value: "[\n\t{\n\t\t\"response\": {\n\t\t\t\"body\": \"\",\n\t\t\t\"output_file\": \"\",\n\t\t\t\"headers\": {},\n\t\t\t\"status\": 200,\n\t\t\t\"method\": \"GET\",\n\t\t\t\"url\": \"http://localhost:8080/api/repo/ingressos\",\n\t\t\t\"response\": {\n\t\t\t\t\"body\": \"{\\n  \\\"_embedded\\\" : {\\n    \\\"ingressos\\\" : [ ]\\n  },\\n  \\\"_links\\\" : {\\n    \\\"self\\\" : {\\n      \\\"href\\\" : \\\"http://localhost:8080/api/repo/ingressos?page=0&size=20\\\"\\n    },\\n    \\\"profile\\\" : {\\n      \\\"href\\\" : \\\"http://localhost:8080/api/repo/profile/ingressos\\\"\\n    }\\n  },\\n  \\\"page\\\" : {\\n    \\\"size\\\" : 20,\\n    \\\"totalElements\\\" : 0,\\n    \\\"totalPages\\\" : 0,\\n    \\\"number\\\" : 0\\n  }\\n}\",\n\t\t\t\t\"output_file\": \"\",\n\t\t\t\t\"headers\": {\n\t\t\t\t\t\"Vary\": \"Origin, Access-Control-Request-Method, Access-Control-Request-Headers\",\n\t\t\t\t\t\"Content-Type\": \"application/hal+json\",\n\t\t\t\t\t\"Transfer-Encoding\": \"chunked\",\n\t\t\t\t\t\"Date\": \"Wed, 26 Nov 2025 15:30:53 GMT\"\n\t\t\t\t},\n\t\t\t\t\"status\": 200,\n\t\t\t\t\"method\": \"GET\",\n\t\t\t\t\"url\": \"http://localhost:8080/api/repo/ingressos\"\n\t\t\t},\n\t\t\t\"script_result\": {\n\t\t\t\t\"stdout\": \"\",\n\t\t\t\t\"error\": \"\",\n\t\t\t\t\"properties\": {},\n\t\t\t\t\"tests\": [],\n\t\t\t\t\"compiled\": true\n\t\t\t},\n\t\t\t\"errors\": [],\n\t\t\t\"http\": \"@name(\\\"1\\\")\\nGET \\\"http://localhost:8080/api/repo/ingressos\\\"\\n\\n\\n\\n\",\n\t\t\t\"filenameExtension\": \"txt\"\n\t\t},\n\t\t\"metadata\": {\n\t\t\t\"uri\": {\n\t\t\t\t\"$mid\": 1,\n\t\t\t\t\"fsPath\": \"/home/joaoh/NetBeansProjects/Ticketer/src/main/java/br/dev/casa24h/ticketer/compravel/ingresso.hnbk\",\n\t\t\t\t\"external\": \"vscode-notebook-cell:/home/joaoh/NetBeansProjects/Ticketer/src/main/java/br/dev/casa24h/ticketer/compravel/ingresso.hnbk#W0sZmlsZQ%3D%3D\",\n\t\t\t\t\"path\": \"/home/joaoh/NetBeansProjects/Ticketer/src/main/java/br/dev/casa24h/ticketer/compravel/ingresso.hnbk\",\n\t\t\t\t\"scheme\": \"vscode-notebook-cell\",\n\t\t\t\t\"fragment\": \"W0sZmlsZQ==\"\n\t\t\t},\n\t\t\t\"cellNo\": 0,\n\t\t\t\"date\": \"2025-30-26--12-11-53\",\n\t\t\t\"target\": \"1\",\n\t\t\t\"executionTime\": \"0.0\"\n\t\t}\n\t}\n]"
+- kind: 2
+  language: dothttp-vscode
+  value: |-
+    POST http://localhost:8080/api/repo/ingressos
+    json({
+      "exibicao": "http://localhost:8080/api/repo/exibicoes/1",
+      "poltrona": "A1",
+    })
+  outputs: []
+- kind: 2
+  language: dothttp-vscode
+  value: |-
+    POST http://localhost:8080/api/repo/bomboniere
+    json({
+      "nome": "Pipoca Grande",
+      "preco": 22.00
+    })
+  outputs:
+    - mime: x-application/dotbook
+      value: "[\n\t{\n\t\t\"response\": {\n\t\t\t\"response\": {\n\t\t\t\t\"body\": \"HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /api/repo/bomboniere (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4a7591cc50>: Failed to establish a new connection: [Errno 111] Connection refused'))\",\n\t\t\t\t\"status\": 0,\n\t\t\t\t\"method\": \"REQUEST_EXECUTION_ERROR\",\n\t\t\t\t\"url\": \"REQUEST_EXECUTION_ERROR\",\n\t\t\t\t\"headers\": {\n\t\t\t\t\t\"Content-Type\": \"text/plain\"\n\t\t\t\t},\n\t\t\t\t\"output_file\": \"\",\n\t\t\t\t\"error\": true,\n\t\t\t\t\"error_message\": \"HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /api/repo/bomboniere (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4a7591cc50>: Failed to establish a new connection: [Errno 111] Connection refused'))\",\n\t\t\t\t\"contentType\": \"text/plain\"\n\t\t\t},\n\t\t\t\"script_result\": {\n\t\t\t\t\"stdout\": \"\",\n\t\t\t\t\"error\": \"\",\n\t\t\t\t\"properties\": {},\n\t\t\t\t\"tests\": []\n\t\t\t},\n\t\t\t\"http\": \"REQUEST_EXECUTION_ERROR\",\n\t\t\t\"filenameExtension\": \"txt\",\n\t\t\t\"body\": \"\",\n\t\t\t\"status\": 0,\n\t\t\t\"method\": \"REQUEST_EXECUTION_ERROR\",\n\t\t\t\"url\": \"REQUEST_EXECUTION_ERROR\",\n\t\t\t\"headers\": {},\n\t\t\t\"output_file\": \"\",\n\t\t\t\"error\": true,\n\t\t\t\"error_message\": \"HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /api/repo/bomboniere (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f4a7591cc50>: Failed to establish a new connection: [Errno 111] Connection refused'))\",\n\t\t\t\"contentType\": \"text/plain\"\n\t\t},\n\t\t\"metadata\": {\n\t\t\t\"uri\": {\n\t\t\t\t\"$mid\": 1,\n\t\t\t\t\"fsPath\": \"/home/joaoh/NetBeansProjects/Ticketer/src/main/java/br/dev/casa24h/ticketer/compravel/ingresso.hnbk\",\n\t\t\t\t\"external\": \"vscode-notebook-cell:/home/joaoh/NetBeansProjects/Ticketer/src/main/java/br/dev/casa24h/ticketer/compravel/ingresso.hnbk#W2sZmlsZQ%3D%3D\",\n\t\t\t\t\"path\": \"/home/joaoh/NetBeansProjects/Ticketer/src/main/java/br/dev/casa24h/ticketer/compravel/ingresso.hnbk\",\n\t\t\t\t\"scheme\": \"vscode-notebook-cell\",\n\t\t\t\t\"fragment\": \"W2sZmlsZQ==\"\n\t\t\t},\n\t\t\t\"cellNo\": 2,\n\t\t\t\"date\": \"2025-08-26--13-11-53\",\n\t\t\t\"target\": \"1\",\n\t\t\t\"executionTime\": \"0.0\"\n\t\t}\n\t}\n]"
+    - mime: text/x-txt
+      value: >-
+        HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded
+        with url: /api/repo/bomboniere (Caused by
+        NewConnectionError('<urllib3.connection.HTTPConnection object at
+        0x7f4a7591cc50>: Failed to establish a new connection: [Errno 111]
+        Connection refused'))
+    - mime: text/plain
+      value: >-
+        HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded
+        with url: /api/repo/bomboniere (Caused by
+        NewConnectionError('<urllib3.connection.HTTPConnection object at
+        0x7f4a7591cc50>: Failed to establish a new connection: [Errno 111]
+        Connection refused'))

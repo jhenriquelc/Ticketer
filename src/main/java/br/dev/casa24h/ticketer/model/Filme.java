@@ -2,36 +2,50 @@ package br.dev.casa24h.ticketer.model;
 
 import java.time.Duration;
 
+import br.dev.casa24h.ticketer.filme.DurationAttributeConverter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Convert;
+
+@Entity
 public class Filme {
 
-	private String nome;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
 
-	private Duration duracao;
+    private String nome;
 
-	private float precoIngresso;
+    @Convert(converter = DurationAttributeConverter.class)
+    private Duration duracao;
+
+    private float precoIngresso;
+
+    protected Filme() {
+    }
+
+    public Filme(String nome, Duration duracao, float precoIngresso) {
+        this.nome = nome;
+        this.duracao = duracao;
+        this.precoIngresso = precoIngresso;
+    }
 
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public Duration getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(Duration duracao) {
-        this.duracao = duracao;
-    }
-
     public float getPrecoIngresso() {
         return precoIngresso;
     }
 
-    public void setPrecoIngresso(float precoIngresso) {
-        this.precoIngresso = precoIngresso;
+    public Long getId() {
+        return id;
     }
     
 }
