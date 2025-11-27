@@ -5,14 +5,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import br.dev.casa24h.ticketer.model.Exibicao;
 import br.dev.casa24h.ticketer.model.ItemBomboniere;
 import br.dev.casa24h.ticketer.repository.ItemBomboniereRepository;
+import br.dev.casa24h.ticketer.repository.FilmeRepository;
 
 @Controller
 public class HomeController {
 
     @Autowired
     ItemBomboniereRepository itemBomboniereRepository;
+
+    @Autowired
+    FilmeRepository filmeRepository;
 
     @GetMapping("/")
     public String redirecionarParaVendas() {
@@ -38,9 +43,11 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/sessoes")
-    public String sessoes(Model model) {
-        model.addAttribute("conteudo", "sessoes");
+    @GetMapping("/exibicoes")
+    public String exibicoes(Model model) {
+        model.addAttribute("conteudo", "exibicoes");
+        model.addAttribute("filmes", filmeRepository.findAll());
+        model.addAttribute("exibicao", new Exibicao(null, null, null));
         return "index";
     }
 

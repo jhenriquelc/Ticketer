@@ -1,27 +1,30 @@
 package br.dev.casa24h.ticketer.controller;
 
 import br.dev.casa24h.ticketer.model.Exibicao;
+import br.dev.casa24h.ticketer.model.ItemBomboniere;
 import br.dev.casa24h.ticketer.repository.ExibicaoRepository;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/api/exibicoes")
 public class ExibicaoController {
 
-    private final ExibicaoRepository repository;
-
-    public ExibicaoController(ExibicaoRepository repository) {
-        this.repository = repository;
-    }
+    @Autowired
+    private ExibicaoRepository repository;
 
     @PostMapping(path = "/{id}/ocupar/{assento}")
     public ResponseEntity<?> ocuparAssento(@PathVariable("id") @NonNull Long id, @PathVariable("assento") String assento) {
@@ -47,5 +50,17 @@ public class ExibicaoController {
 
         return ResponseEntity.ok(saved);
     }
+
+    @PostMapping("")
+    public ResponseEntity<?> postExibicao(@ModelAttribute Exibicao exibicao, Model model) {
+        if (exibicao == null) {
+            return ResponseEntity.badRequest().body("Exibicao não pode ser nulo");
+        }
+        
+        repository.save(exibicao);
+
+        return ResponseEntity.status(302).header("Location", "/ingressos").build();
+    }
+    
 
 }
