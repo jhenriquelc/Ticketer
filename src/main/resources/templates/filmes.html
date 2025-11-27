@@ -1,23 +1,55 @@
 <div th:fragment="conteudo">
     <h2>Cadastrar filmes:</h2>
-    <!-- <form th:action="@{/filmes/salvar}" action="/filmes/salvar" method="post"> -->
-    <form>
+    <form th:action="@{/api/filmes}" action="#" th:object="${filme}" method="post">
 
         <div class="form-group">
             <label>Nome do Filme:</label>
-            <input type="text" name="nome" maxlength="50" placeholder="Nome do filme" required>
+            <input type="text" name="nome" th:field="*{nome}" maxlength="50" placeholder="Nome do filme" required>
         </div>
 
         <div class="form-group">
             <label>Duração (em minutos):</label>
-            <input type="number" name="duracao" required>
+            <input type="number" name="duracao" th:field="*{duracao}" required>
         </div>
 
         <div class="form-group">
             <label>Preço do Ingresso (R$):</label>
-            <input type="number" name="precoIngresso" placeholder="Ex: 29.90" required>
+            <input type="number" name="precoIngresso" th:field="*{precoIngresso}" placeholder="Ex: 29.90" required>
         </div>
 
-        <button type="submit" class="btn">Salvar Filme</button>
     </form>
+    
+    <button id="btnSalvarFilme" class="btn">Salvar Filme</button>
+    <script>
+        document.getElementById('btnSalvarFilme').addEventListener('click', function() {
+            // Obter valores dos inputs
+            const nome = document.querySelector('input[name="nome"]').value;
+            const duracaoMinutos = document.querySelector('input[name="duracao"]').value;
+            
+            // converter para formato ISO 8601 PT#M
+            const duracao = `PT${duracaoMinutos}M`;
+
+            const precoIngresso = document.querySelector('input[name="precoIngresso"]').value
+
+            const filme = {
+                nome: nome,
+                duracao: duracao,
+                precoIngresso: parseFloat(precoIngresso)
+            };
+
+            // Enviar requisição POST para a API
+            fetch('/api/filmes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(filme)
+            }).then(response => {
+                if (response.ok) {
+                    // redirecionar para a páfina de ingressos
+                    window.location.href = '/ingressos';
+                }
+            });
+        });
+    </script>
 </div>

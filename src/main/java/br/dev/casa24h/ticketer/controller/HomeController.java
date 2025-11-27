@@ -40,6 +40,7 @@ public class HomeController {
     @GetMapping("/filmes")
     public String filmes(Model model) {
         model.addAttribute("conteudo", "filmes");
+        model.addAttribute("filme", new br.dev.casa24h.ticketer.model.Filme(null, null, 0.0f));
         return "index";
     }
 
