@@ -1,41 +1,16 @@
 
 <main th:fragment="conteudo">
-    <div class="vendas-container">
+    <div class="vendas-container w-100">
 
-        <div class="filmes-grid">
-            <div class="filme-card">
-                <h2 class="filme-nome">Avatar 2: O Caminho da Água</h2>
-                <div class="filme-informacoes">
-                    <p class="filme-genero">Ficção</p>
-                    <p class="filme-duracao">120m</p>
-                    <p class="exibir-horas">↓</p>
-                </div>
-                <div>
-                    <div>
-                        <label for="sessao-horarios">Selecione o horário:</label>
-                        <select id="sessao-horarios" name="sessao-horarios">
-                            <option value="14:00">14:00</option>
-                            <option value="16:30">16:30</option>
-                            <option value="19:00">19:00</option>
-                            <option value="21:30">21:30</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="quantidade-ingressos">Quantidade de ingressos:</label>
-                        <input type="number" id="quantidade-ingressos" name="quantidade-ingressos" min="1" max="30" value="1" style="width: 60px; margin-left: 10px;">
-                    </div>
-                    <button class="btn-comprar">Comprar Ingresso</button>
-                </div>
-            </div>
-
+        <div class="filmes-grid d-flex">
+       
             <div class="card" style="width: 18rem;">
             <div th:each="filme : ${Filmes}" class="card" style="width: 18rem;">
             <div class="card-body">
-                <!-- <h5 class="card-title" th:text="${filme.nome}"></h5> -->
-                <h5 class="card-title">Titulo do filme</h5>
+                <h5 class="card-title" th:text="${filme.getKey().nome}"></h5>
                 <div class="d-flex justify-content-around">
-                    <div class="card-text">R$ 10.00</div>
-                    <div class="card-text">120 min</div>                    
+                    <div class="card-text" th:text="${filme.getKey().precoIngresso}"></div>
+                    <div class="card-text" th:text="${filme.getKey().duracao}"></div>                    
                 </div>
 
                 <label for="sessao-horarios">Selecione o horário:</label>
