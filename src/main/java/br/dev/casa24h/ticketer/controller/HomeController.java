@@ -41,4 +41,10 @@ public class HomeController {
         model.addAttribute("conteudo", "gerenciamento-bomboniere");
         return "index";
     }
+
+    @GetMapping("/carrinho")
+    public String carrinho(Model model) {
+        model.addAttribute("conteudo", "carrinho");
+        return "index";
+    }
 }
