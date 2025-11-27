@@ -1,0 +1,27 @@
+<div th:fragment="conteudo">
+    <h2>Cadastrar Exibições:</h2>
+    <form th:action="@{/api/exibicoes}" action="/ingressos" th:object="${exibicao}" method="post">
+
+        <div class="form-group">
+            <label >Escolha o filme:</label>
+            <select name="filme-nome" th:field="*{filme}" required style="
+                width: 100%;
+                padding: 10px;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+                font-size: 15px;
+                box-sizing: border-box;
+            ">
+                <option value="" disabled selected>Selecione um filme</option>
+                <option th:each="filme : ${filmes}" th:value="${filme.id}" th:text="${filme.nome}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Inicio da Exibição:</label>
+            <input type="datetime-local" name="inicio" th:field="*{inicio}" required>
+        </div>
+
+        <button type="submit" class="btn">Salvar Exibição</button>
+    </form>
+</div>
