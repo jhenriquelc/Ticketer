@@ -1,16 +1,17 @@
 <div th:fragment="conteudo">
-    <div class="vendas-container">
 
-        <div class="filmes-grid">
-            <div class="filme-card">
-                <h2 class="filme-nome">Pipoca</h2>
-                <div class="filme-informacoes">
-                    <p class="filme-genero">qtd:</p>
-                    <input type="number" name="quantidade" min="1" value="1" style="width: 60px; margin-right: 10px;">
-                    <button class="btn-comprar">Adicionar ao carrinho</button>
+    <div class="filmes-grid d-flex">
+         <div class="card m-4" th:each="itemBomboniere : ${itensBomboniere}" style="width: 18rem;" th:id="${itemBomboniere.id}">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${itemBomboniere.nome}"></h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary" th:text="'R$ ' + ${itemBomboniere.preco}"></h6>
+                <div class="mb-3">
+                    <label for="qtd" class="form-label">Qtd:</label>
+                    <input type="number" class="form-control" id="qtd" aria-describedby="qtd" min="0">
                 </div>
-            </div>
 
+                <button class="btn">Adicionar ao carrinho</button>        
+            </div>
         </div>
     </div>
 </div>

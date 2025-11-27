@@ -1,5 +1,5 @@
 
-<div th:fragment="conteudo">
+<main th:fragment="conteudo">
     <div class="vendas-container">
 
         <div class="filmes-grid">
@@ -28,7 +28,35 @@
                 </div>
             </div>
 
+            <div class="card" style="width: 18rem;">
+            <div th:each="filme : ${Filmes}" class="card" style="width: 18rem;">
+            <div class="card-body">
+                <!-- <h5 class="card-title" th:text="${filme.nome}"></h5> -->
+                <h5 class="card-title">Titulo do filme</h5>
+                <div class="d-flex justify-content-around">
+                    <div class="card-text">R$ 10.00</div>
+                    <div class="card-text">120 min</div>                    
+                </div>
+
+                <label for="sessao-horarios">Selecione o horário:</label>
+                <select id="sessao-horarios" name="sessao-horarios">
+                    <option value="14:00">14:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="21:30">21:30</option>
+                </select>
+                <div class="mb-3">
+                    <label for="qtd" class="form-label">Qtd:</label>
+                    <input type="number" class="form-control" id="qtd" aria-describedby="qtd" min="0">
+                </div>
+                <button class="btn-comprar">Comprar Ingresso</button>
+            </div>
         </div>
+
+        </div>
+
+        
+
     </div>
-</div>
+</main>
 
