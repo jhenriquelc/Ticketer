@@ -9,6 +9,8 @@ import br.dev.casa24h.ticketer.model.Exibicao;
 import br.dev.casa24h.ticketer.model.ItemBomboniere;
 import br.dev.casa24h.ticketer.repository.ItemBomboniereRepository;
 import br.dev.casa24h.ticketer.repository.FilmeRepository;
+import br.dev.casa24h.ticketer.repository.VendaRepository;
+import br.dev.casa24h.ticketer.repository.ExibicaoRepository;
 
 @Controller
 public class HomeController {
@@ -18,6 +20,12 @@ public class HomeController {
 
     @Autowired
     FilmeRepository filmeRepository;
+
+    @Autowired
+    VendaRepository vendaRepository;
+
+    @Autowired
+    ExibicaoRepository exibicaoRepository;
 
     @GetMapping("/")
     public String redirecionarParaVendas() {
@@ -62,6 +70,13 @@ public class HomeController {
     @GetMapping("/carrinho")
     public String carrinho(Model model) {
         model.addAttribute("conteudo", "carrinho");
+        return "index";
+    }
+
+    @GetMapping("/historico-vendas")
+    public String historicoVendas(Model model) {
+        model.addAttribute("conteudo", "historico-vendas");
+        model.addAttribute("vendas", vendaRepository.findAll());
         return "index";
     }
 }

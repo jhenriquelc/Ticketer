@@ -29,6 +29,10 @@ public class Venda {
 	protected Venda() {
 	}
 
+	public static Venda criar() {
+		return new Venda();
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		if (this.data == null) {

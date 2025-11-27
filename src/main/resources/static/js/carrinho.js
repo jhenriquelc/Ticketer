@@ -68,7 +68,7 @@
         const el = btn;
         // read data attributes or find sibling quantity input
         const id = el.dataset.id || el.dataset.sku || el.getAttribute('data-name') || el.textContent.trim();
-        const name = el.dataset.name || el.getAttribute('data-name') || id;
+        let name = el.dataset.name || el.getAttribute('data-name') || id;
         const price = Number(el.dataset.price || el.getAttribute('data-price') || 0);
         let qty = Number(el.dataset.quantity || 0);
         if (!qty) {
@@ -76,10 +76,20 @@
           const qInput = el.closest('.filme-card')?.querySelector('input[type="number"]');
           qty = qInput ? Number(qInput.value || 1) : 1;
         }
+
+        // Check if this is an ingresso (ticket) - try to find poltrona input
+        const filmeCard = el.closest('.filme-card');
+        if (filmeCard) {
+          const poltronaInput = filmeCard.querySelector('input[type="text"]');
+          if (poltronaInput && poltronaInput.value) {
+            name = name + ' - Poltrona: ' + poltronaInput.value;
+          }
+        }
+
         addItem({ id, name, price, quantity: qty });
         // optional: simple feedback
         el.textContent = 'Adicionado ✓';
-        setTimeout(() => { el.textContent = 'Adicionar ao carrinho'; }, 900);
+        setTimeout(() => { el.textContent = 'Comprar Ingresso'; }, 900);
       });
     });
   }
@@ -104,8 +114,10 @@
     const tbody = document.createElement('tbody');
     items.forEach(it => {
       const tr = document.createElement('tr');
+      // Oculta o nome técnico e mostra apenas "Ingresso" ou nome genérico
+      const displayName = it.name && it.name.startsWith('Ingresso') ? 'Ingresso' : 'Produto';
       tr.innerHTML = `
-        <td>${escapeHtml(it.name)}</td>
+        <td>${escapeHtml(displayName)}</td>
         <td>R$ ${Number(it.price).toFixed(2)}</td>
         <td><input type="number" min="1" value="${Number(it.quantity)}" class="cart-qty form-control" data-id="${escapeHtml(it.id)}" style="width: 80px;"></td>
         <td>R$ ${(Number(it.price) * Number(it.quantity)).toFixed(2)}</td>
@@ -119,6 +131,12 @@
     footer.innerHTML = `<strong>Total: R$ ${total().toFixed(2)}</strong> <button id="clear-cart" class="btn btn-sm btn-secondary ms-3">Limpar carrinho</button>`;
     container.appendChild(table);
     container.appendChild(footer);
+
+    // show checkout button only if cart is not empty
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+      checkoutBtn.style.display = 'block';
+    }
 
     // attach events
     container.querySelectorAll('.cart-remove').forEach(b => {
@@ -143,6 +161,59 @@
     updateBadge();
   }
 
+  // Checkout function
+  function checkout() {
+    const items = getItems();
+    if (items.length === 0) {
+      alert('Seu carrinho está vazio!');
+      return;
+    }
+
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const statusDiv = document.getElementById('checkout-status');
+    
+    if (!checkoutBtn || !statusDiv) return;
+
+    checkoutBtn.disabled = true;
+    checkoutBtn.textContent = 'Processando...';
+    statusDiv.innerHTML = '';
+
+    fetch('/api/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ items: items })
+    })
+      .then(resp => {
+        if (!resp.ok) {
+          return resp.text().then(text => {
+            throw new Error(text || 'Erro ao processar checkout');
+          });
+        }
+        return resp.json();
+      })
+      .then(data => {
+        // Success: clear cart and show message
+        statusDiv.innerHTML = `
+          <div class="alert alert-success" role="alert">
+            <strong>Compra realizada com sucesso!</strong>
+            <p>Venda #${data.id} - Total: R$ ${Number(data.preco).toFixed(2)}</p>
+            <p><a href="/historico-vendas" class="btn btn-sm btn-primary">Ver no histórico</a></p>
+          </div>
+        `;
+        clear();
+        renderCart();
+        checkoutBtn.disabled = false;
+        checkoutBtn.textContent = 'Finalizar Compra';
+      })
+      .catch(err => {
+        statusDiv.innerHTML = `<div class="alert alert-danger" role="alert">Erro ao processar compra: ${escapeHtml(err.message)}</div>`;
+        checkoutBtn.disabled = false;
+        checkoutBtn.textContent = 'Finalizar Compra';
+      });
+  }
+
   // small helper to avoid XSS when injecting text
   function escapeHtml(s) {
     return String(s)
@@ -158,6 +229,13 @@
     initAddButtons();
     renderCart();
     updateBadge();
+    
+    // attach checkout button listener
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', checkout);
+    }
+    
     // listen for storage events so multiple tabs stay in sync
     window.addEventListener('storage', (e) => {
       if (e.key === KEY) {
@@ -168,5 +246,5 @@
   });
 
   // Expose some functions for debugging on window
-  window.TicketerCart = { addItem, getItems, clear, removeItem, updateQuantity, total };
+  window.TicketerCart = { addItem, getItems, clear, removeItem, updateQuantity, total, checkout };
 })();

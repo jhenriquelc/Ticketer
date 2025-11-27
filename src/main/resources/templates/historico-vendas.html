@@ -1,0 +1,30 @@
+<div th:fragment="conteudo">
+    <div class="vendas-container">
+        <div class="filmes-grid">
+            <h2>Histórico de vendas:</h2>
+            <div th:if="${#lists.isEmpty(vendas)}" class="alert alert-info">
+                <p>Nenhuma venda realizada ainda.</p>
+            </div>
+            <div th:each="venda : ${vendas}">
+                <div class="filme-card">
+                    <h2 class="venda-id" th:text="'Venda #' + ${venda.id}">Venda #ID</h2>
+                    <div class="filme-informacoes">
+                        <p><strong>Data:</strong> <span th:text="${#temporals.format(venda.data, 'dd/MM/yyyy HH:mm:ss')}">--</span></p>
+                        <p><strong>Total:</strong> R$ <span th:text="${#numbers.formatDecimal(venda.preco, 1, 2)}">0.00</span></p>
+                        <div th:if="${!#lists.isEmpty(venda.itens)}">
+                            <strong>Itens:</strong>
+                            <ul>
+                                <li th:each="item : ${venda.itens}">
+                                    <span th:text="${item.descricao.startsWith('Ingresso') ? 'Ingresso' : 'Produto'}">Item</span> - R$ <span th:text="${#numbers.formatDecimal(item.preco, 1, 2)}">0.00</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div th:if="${#lists.isEmpty(venda.itens)}" class="text-muted">
+                            <p>Nenhum item nesta venda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
